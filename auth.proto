@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package auth;
+
+enum SubjectType {
+  UNKNOWN = 0;
+  CUSTOMER = 1;
+  SELLER = 2;
+  ADMIN = 3;
+  ANON_CUSTOMER = 4;
+  ANON_SELLER = 5;
+  ANON_ADMIN = 6;
+}
+
+message Subject {
+  string xid = 1;
+  string name = 2;
+  optional string photo_profile = 3;
+  optional int32 subject_type = 4;
+}
+
+message AnonymousDto {
+  string xid = 1;
+  string username = 2;
+  string password = 3;
+  AnonymousLevel level = 4;
+  int64 createdAt = 5;
+  int64 updatedAt = 6;
+  int32 version = 7;
+
+  enum AnonymousLevel {
+    UNKNOWN = 0;
+    CUSTOMER = 1;
+    SELLER = 2;
+    ADMIN = 3;
+  }
+}
+
+message AuthResultDto {
+  string token = 1;
+}
+
+message ValidateTokenDto {
+  string token = 1;
+  repeated string audience = 2;
+}

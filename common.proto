@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package common;
+
+enum Gender {
+  UNKNOWN = 0;
+  MALE = 1;
+  FEMALE = 2;
+}
+
+message Health {
+  string name = 1;
+  string version = 2;
+  int64 lifetime = 3;
+}
+
+message TokenDto {
+  string token = 1;
+}
+
+message PayloadXid {
+    string xid = 1;
+}

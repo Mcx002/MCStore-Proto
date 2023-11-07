@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package authSvc;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+import "common.proto";
+import "auth.proto";
+import "user-auth.proto";
+
+service Auth {
+  rpc GetHealth(google.protobuf.Empty) returns (common.Health) {}
+
+  rpc CreateCustomerAnonymousToken(auth.AnonymousDto) returns (auth.AuthResultDto) {}
+  rpc CreateSellerAnonymousToken(auth.AnonymousDto) returns (auth.AuthResultDto) {}
+  rpc CreateAdminAnonymousToken(auth.AnonymousDto) returns (auth.AuthResultDto) {}
+  rpc ValidateToken(auth.ValidateTokenDto) returns (auth.Subject) {}
+
+  // Customer
+  rpc RegisterUserAuth(userAuth.RegisterDto) returns (auth.AuthResultDto) {}
+  rpc IsUserEmailExists(userAuth.UserAuthDto) returns (google.protobuf.BoolValue) {}
+  rpc ValidateUserAccount(userAuth.RegisterDto) returns (auth.AuthResultDto) {}
+  rpc EmailVerificationRequest(google.protobuf.StringValue) returns (google.protobuf.BoolValue) {}
+  rpc SendUserEmailVerificationMail(userAuth.SendEmailVerificationDto) returns (google.protobuf.BoolValue) {}
+  rpc ValidateUserEmailVerification(common.TokenDto) returns (google.protobuf.BoolValue) {}
+  rpc EditUserPassword(userAuth.EditPasswordDto) returns (google.protobuf.BoolValue) {}
+}

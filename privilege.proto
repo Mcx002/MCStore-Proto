@@ -1,0 +1,15 @@
+syntax = "proto2";
+
+package privilege;
+
+import 'google/protobuf/descriptor.proto';
+
+extend google.protobuf.FieldOptions{
+  optional string name = 12345;
+}
+
+message Privilege {
+  optional string anonymous_customer = 1 [(name)="AC"];
+  optional string anonymous_seller = 2 [(name)="AS"];
+  optional string anonymous_admin = 3 [(name)="AA"];
+}

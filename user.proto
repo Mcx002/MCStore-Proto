@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package user;
+
+message UserDto {
+    string xid = 1;
+    string first_name = 2;
+    string last_name = 3;
+    int64 created_at = 4;
+    int64 updated_at = 5;
+    string email = 6;
+    int64 birthday = 7;
+    string gender = 8;
+    string phone = 9;
+    string address = 10;
+    int32 version = 11;
+}

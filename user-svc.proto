@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package userSvc;
+
+import "google/protobuf/empty.proto";
+import "common.proto";
+import "user.proto";
+
+service User {
+    rpc GetHealth(google.protobuf.Empty) returns (common.Health) {};
+    rpc GetUser(common.PayloadXid) returns (user.UserDto) {};
+}
+

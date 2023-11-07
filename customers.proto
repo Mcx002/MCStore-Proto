@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package customers;
+
+import "common.proto";
+
+enum EmailStatus {
+  UNKNOWN = 0;
+  VERIFIED = 1;
+  UNVERIFIED = 2;
+}
+
+message Customer {
+  int32 id = 1;
+  string firstname = 2;
+  string lastname = 3;
+  string email = 4;
+  int64 birthday = 5;
+  common.Gender gender = 6;
+  string phone = 7;
+  string address = 8;
+  int64 createdAt = 9;
+  int64 updatedAt = 10;
+  int32 version = 11;
+}

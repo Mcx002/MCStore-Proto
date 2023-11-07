@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package userAuth;
+
+import "auth.proto";
+
+message UserAuthDto {
+  string email = 2;
+  int64 created_at = 3;
+  int64 updated_at = 4;
+  int32 version = 5;
+  optional string password = 6;
+  int64 user_id = 7;
+  auth.SubjectType subject_type = 8;
+}
+
+message RegisterDto {
+  UserAuthDto user_auth = 1;
+  auth.Subject subject = 2;
+}
+
+message SendEmailVerificationDto {
+  string deviceId = 1;
+  string email = 2;
+  auth.SubjectType subject_type = 3;
+}
+
+message EditPasswordDto {
+  string email = 1;
+  string old_password = 2;
+  string new_password = 3;
+  auth.SubjectType subject_type = 4;
+}

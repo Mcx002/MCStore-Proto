@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package customer;
+
+message CustomerDto {
+  string xid = 1;
+  string firstName = 2;
+  string lastName = 3;
+  string phone = 4;
+  string email = 5;
+  string photo = 6;
+}
